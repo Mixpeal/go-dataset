@@ -185,7 +185,10 @@ func main() {
 	err := godotenv.Load(".env")
 
 	if err != nil {
-		log.Fatal(err)
+		err := godotenv.Load(".env.prod")
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	config := &storage.Config{
