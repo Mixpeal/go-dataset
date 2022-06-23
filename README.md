@@ -12,7 +12,7 @@
     - GET /users?filters=["email", "hanna.lance@gmail.com"] (_You can replace email property with any other one e.g. name, company, etc._)
     
 - Filtering users by a date range
-    - GET /users?filters=[["date",">=","2022-08-15"],["AND"],["date","<=","2023-01-15"]] (_You can replace email property with any other one e.g. name, company, etc._)
+    - GET /users?filters=[["date",">=","2022-08-15"],["AND"],["date","<=","2023-01-15"]]
 
 - Filtering users by by page and setting page limit
     - GET /users?page=1&size=2 (_page sets the current page and size sets the number of users shown in a page._)
