@@ -1,0 +1,6 @@
+name: go-dataset
+services:
+  - name: web
+    github:
+      repo: mixpeal/sample-golang
+      branch: main
