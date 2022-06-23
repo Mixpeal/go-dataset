@@ -140,12 +140,7 @@ func (r *Repository) DeleteUser(context *fiber.Ctx) error {
 }
 
 func (r *Repository) GetUsers(context *fiber.Ctx) error {
-	// startDate, _ := time.Parse(context.Query("start_date"), "2006-01-02")
-	// endDate, _ := time.Parse(context.Query("end_date"), "2006-01-02")
 	db := r.DB
-	// if context.Query("start_date") != "" && context.Query("end_date") != "" {
-	// 	db.Where("date >= ? and date <= ?", startDate, endDate)
-	// }
 	model := db.Model(&models.Users{})
 
 	pg := paginate.New(&paginate.Config{
@@ -167,7 +162,6 @@ func (r *Repository) GetUserByID(context *fiber.Ctx) error {
 		context.Status(http.StatusInternalServerError).JSON(&fiber.Map{"message": "ID cannot be empty"})
 		return nil
 	}
-	// fmt.Println("the ID is", id)
 
 	err := r.DB.Where("id = ?", id).First(userModel).Error
 	if err != nil {
