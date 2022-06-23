@@ -182,15 +182,14 @@ func (repo *Repository) SetupRoutes(app *fiber.App) {
 }
 
 func main() {
-	err := godotenv.Load(".env")
+	_, ok := os.LookupEnv("APP_ENV")
 
-	if err != nil {
-		err := godotenv.Load(".env.prod")
+	if !ok {
+		err := godotenv.Load(".env")
 		if err != nil {
 			log.Fatal(err)
 		}
 	}
-
 	config := &storage.Config{
 		Host:     os.Getenv("DB_HOST"),
 		Port:     os.Getenv("DB_PORT"),
